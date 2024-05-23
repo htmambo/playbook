@@ -2,7 +2,7 @@ name: Archive and Release
 
 on:
   push:
-    标签:
+    tags:
       - '*'
 
 env:
@@ -17,7 +17,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: 更新 version
+      - name: Update version
         run: |
           $version = "${{ github.ref_name }}"
           $playbookConfPath = "src\playbook.conf"
