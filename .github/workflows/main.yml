@@ -2,7 +2,7 @@ name: Archive and Release
 
 on:
   push:
-    tags:
+    标签:
       - '*'
 
 env:
@@ -17,7 +17,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Update version
+      - name: 更新 version
         run: |
           $version = "${{ github.ref_name }}"
           $playbookConfPath = "src\playbook.conf"
@@ -66,7 +66,7 @@ jobs:
       - name: Release
         uses: svenstaro/upload-release-action@v2
         with:
-          repo_token: ${{ secrets.TOKEN }}
+          # repo_token: ${{ secrets.TOKEN }}
           file: ${{ env.FILENAME }}
           asset_name: ${{ env.FILENAME }}
           tag: ${{ github.ref }}
